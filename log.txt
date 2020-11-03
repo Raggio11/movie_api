@@ -16,4 +16,39 @@ Timestamp: Tue Nov 03 2020 13:24:13 GMT-0700 (Mountain Standard Time)
 
 URL: /favicon.ico
 Timestamp: Tue Nov 03 2020 13:24:13 GMT-0700 (Mountain Standard Time)
+URL: /
+Timestamp: Tue Nov 03 2020 13:46:56 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:46:56 GMT-0700 (Mountain Standard Time)
+
+URL: /
+Timestamp: Tue Nov 03 2020 13:47:05 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:47:05 GMT-0700 (Mountain Standard Time)
+
+URL: /documentation
+Timestamp: Tue Nov 03 2020 13:47:09 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:47:09 GMT-0700 (Mountain Standard Time)
+
+URL: /documentation
+Timestamp: Tue Nov 03 2020 13:48:04 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:48:04 GMT-0700 (Mountain Standard Time)
+
+URL: /documentation
+Timestamp: Tue Nov 03 2020 13:48:18 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:48:18 GMT-0700 (Mountain Standard Time)
+
+URL: /documentation
+Timestamp: Tue Nov 03 2020 13:49:41 GMT-0700 (Mountain Standard Time)
+
+URL: /favicon.ico
+Timestamp: Tue Nov 03 2020 13:49:41 GMT-0700 (Mountain Standard Time)
 
