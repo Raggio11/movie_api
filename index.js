@@ -1,17 +1,10 @@
 const express = require("express");
+morgan = require("morgan");
+
 const app = express();
 
-const bodyParser = require("body-parser"),
-  methodOverride = require("method-override");
-
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
-
+app.use(morgan("common"));
 app.use(bodyParser.json());
-app.use(methodOverride());
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -32,7 +25,7 @@ app.use(express.static("/documentation"), (req, res) => {
 });
 
 app.get("/movies", (req, res) => {
-  res.send("top 10 Movies");
+  res.json("top 10 Movies");
 });
 
 app.listen(8080, () => console.log("Your app is listening on port 8080."));
