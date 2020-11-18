@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Documentation</title>
-  </head>
-  <body>
-    <h1>Documentation</h1>
-    <h1>Uses of api</h1>
-    <p>The movie api will have a variety of uses including:</p>
-    <ul>
-      <li>Return a list of ALL movies to the user</li>
-      <li>
-        Return data (description, genre, director, image URL, whether it’s
-        featured or not) about a single movie by title to the user
-      </li>
-      <li>
-        Return data about a genre (description) by name/title (e.g., “Thriller”)
-      </li>
-    </ul>
-  </body>
-</html>
+<head>
+  <meta charset="utf-8" />
+  <title>Documentation</title>
+</head>
+<body>
+  <h1>Documentation</h1>
+  <h1>Uses of api</h1>
+  <p>The movie api will have a variety of uses including:</p>
+  <ul>
+    <li>Return a list of ALL movies to the user</li>
+    <li>
+      Return data (description, genre, director, image URL, whether it’s
+      featured or not) about a single movie by title to the user
+    </li>
+    <li>
+      Return data about a genre (description) by name/title (e.g., “Thriller”)
+    </li>
+  </ul>
+  <section>
+    <table>
+      <tr>
+        <td>Business Logic</td>
+        <td>URL</td>
+        <td>HTTP Method</td>
+        <td>Request body data format</td>
+        <td>Request body data format</td>
+      </tr>
+      <tr>
+        <td>Get All the Movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>JSON</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Get a list of the top ten movies</td>
+        <td>/movies/topTenMoves</td>
+        <td>GET</td>
+        <td>JSON</td>
+        <td>top ten Movies have Successfully been listed</td>
+      </tr>
+      <tr>
+        <td>Search for movie by genre</td>
+        <td>movies/genre/:genre</td>
+        <td>GET</td>
+        <td>JSON</td>
+        <td>Movies by genre</td>
+      </tr>
+      <tr>
+        <td>Search by directors name</td>
+        <td>movies/director/:name</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>by director</td>
+      </tr>
+    </table>
+  </section>
+</body>
