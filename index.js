@@ -23,7 +23,27 @@ app.get("/", (req, res) => {
 });
 
 app.get("/movies", (req, res) => {
+  res.send("Got all the movies");
+});
+
+app.get("/movies/topTenMovies", (req, res) => {
   res.json(topTenMovies);
+});
+
+app.get("/movies/genre/:genre", (req, res) => {
+  res.send("Got the genre: " + req.params.genre);
+});
+
+app.get("/movies/director/:name", (req, res) => {
+  res.send("Got the director: " + req.params.name);
+});
+
+app.post("/users", (req, res) => {
+  res.send("Post a request for a new user");
+});
+
+app.put("/users/:username", (req, res) => {
+  res.send("Put in a new Username: " + req.params.username);
 });
 
 app.use((err, req, res, next) => {
@@ -31,4 +51,6 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something went wrong!");
 });
 
-app.listen(8080, () => console.log("Your app is listening on port 8080."));
+app.listen(8080, () => {
+  console.log("Your app is listening on port 8080.");
+});
