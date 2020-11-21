@@ -45,6 +45,25 @@ app.post("/users", (req, res) => {
 app.put("/users/:username", (req, res) => {
   res.send("Put in a new Username: " + req.params.username);
 });
+
+app.post("/users/:username/movies/:movieID", (req, res) => {
+  res.send(
+    "Post To add favorite movie with an ID: " +
+      req.params.movieID +
+      " to user: " +
+      req.params.username
+  );
+});
+
+app.delete("/users/:username/movies/:movieID", (req, res) => {
+  res.send(
+    "Post to delete a favorite movie with an ID: " +
+      req.params.movieID +
+      " to user: " +
+      req.params.username
+  );
+});
+
 app.post("/users/:username/:password", (req, res) => {
   res.send(
     "post in a new Username: " +
