@@ -31,28 +31,132 @@
         <td>/movies</td>
         <td>GET</td>
         <td>JSON</td>
-        <td></td>
+        <td>{<br>"Genre" : { <br>"Name" : "Action",<br>"Description" : "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases." <br>},<br><br>"Director" : {<br>"Name" : "Christopher Nolan",<br>"Bio" : "Christopher Edward Nolan CBE is a British-American film director, producer and screenwriter known for making personal, distinctive films within the Hollywood mainstream. His directorial efforts have grossed more than US$5 billion worldwide, garnered 34 Oscar nominations and ten wins.",<br>"Birth" : "1970",<br>"Death" : "-"<br>},<br><br>"_id" : "fc09f5736a2920b2485b87c",<br><br>"Title" : "The Dark Knight",<br><br>
+  "Description" : "With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.",<br><br>
+  "ImagePath" : "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",<br><br>"Featured" : true<br>}</td>
       </tr>
       <tr>
-        <td>Get a list of the top ten movies</td>
-        <td>/movies/topTenMoves</td>
+        <td>Get all the Users</td>
+        <td>/users</td>
         <td>GET</td>
         <td>JSON</td>
-        <td>top ten Movies have Successfully been listed</td>
+        <td> "FavoriteMovies": [
+            "5fc0723a36a2920b2485b876"
+        ],
+        "_id": "5fc0a63736a2920b2485b87f",
+        "username": "Francisco",
+        "password": "Captain",
+        "email": "Magic@gmail.com",
+        "Birthday": "1997-01-01T00:00:00.000Z"
+      </td>
       </tr>
       <tr>
-        <td>Search for movie by genre</td>
-        <td>movies/genre/:genre</td>
+        <td>Get Movie by title</td>
+        <td>movies/:Title</td>
         <td>GET</td>
         <td>JSON</td>
-        <td>Movies by genre</td>
+        <td>{<br>"Genre" : { <br>"Name" : "Action",<br>"Description" : "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases." <br>},<br><br>"Director" : {<br>"Name" : "Christopher Nolan",<br>"Bio" : "Christopher Edward Nolan CBE is a British-American film director, producer and screenwriter known for making personal, distinctive films within the Hollywood mainstream. His directorial efforts have grossed more than US$5 billion worldwide, garnered 34 Oscar nominations and ten wins.",<br>"Birth" : "1970",<br>"Death" : "-"<br>},<br><br>"_id" : "fc09f5736a2920b2485b87c",<br><br>"Title" : "The Dark Knight",<br><br>
+      "Description" : "With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.",<br><br>
+      "ImagePath" : "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",<br><br>"Featured" : true<br>}</td>
       </tr>
       <tr>
-        <td>Search by directors name</td>
-        <td>movies/director/:name</td>
-        <td>DELETE</td>
-        <td>None</td>
-        <td>by director</td>
+        <td>Get the genre of a movie by its title</td>
+        <td>movies/Genres/:Title</td>
+        <td>Get</td>
+        <td>JSON</td>
+        <td><br>"Genre" : <br>"Name" : "Action",<br>"Description" : "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases." <br><td>
+      </tr>
+      <tr>
+        <td>Get director by name</td>
+        <td>movies/Director/:Name</td>
+        <td>Get</td>
+        <td>JSON</td>
+        <td>"Director" : {<br>"Name" : "Christopher Nolan",<br>"Bio" : "Christopher Edward Nolan CBE is a British-American film director, producer and screenwriter known for making personal, distinctive films within the Hollywood mainstream. His directorial efforts have grossed more than US$5 billion worldwide, garnered 34 Oscar nominations and ten wins."<td>
+      </tr>
+      <tr>
+        <td>Get user by username</td>
+        <td>/users/:username</td>
+        <td>Get</td>
+        <td>JSON</td>
+        <td>
+          "FavoriteMovies": [
+             "5fc0723a36a2920b2485b876"
+         ],
+         "_id": "5fc0a63736a2920b2485b87f",
+         "username": "Francisco",
+         "password": "Captain",
+         "email": "Magic@gmail.com",
+         "Birthday": "1997-01-01T00:00:00.000Z"
+          <td>
+      </tr>
+      <tr>
+        <td>Add a user</td>
+        <td>/users</td>
+        <td>Post</td>
+        <td>JSON</td>
+        <td>
+          {
+              "username" : "Bruce",
+              "password" : "Wayne",
+              "email" : "batman@bat.com",
+              "Birthday" : "01/01/90"
+          }
+          <td>
+      </tr>
+      <tr>
+        <td>update a user by username</td>
+        <td>/users/:username</td>
+        <td>Put</td>
+        <td>JSON</td>
+        <td>
+          {
+    "username" : "Bruce",
+    "password" : "Wayne",
+    "email" : "batman@bat.com",
+    "Birthday" : "01/01/90"
+}<td>
+      </tr>
+      <tr>
+        <td>add favorite movie to user by username and MovieID</td>
+        <td>/users/:username/Movies/:MovieID</td>
+        <td>Put</td>
+        <td>JSON</td>
+        <td>
+          { "FavoriteMovies": [
+            "5fc0723a36a2920b2485b876",
+            "5fc09f5736a2920b2485b87c"
+              ],
+              "_id": "5fc0a63736a2920b2485b87f",
+              "username": "Francisco",
+              "password": "Captain",
+              "email": "Magic@gmail.com",
+              "Birthday": "1997-01-01T00:00:00.000Z"
+          }
+          <td>
+      </tr>
+      <tr>
+        <td>Deletes favorite movie to user by username and MovieID</td>
+        <td>/users/:username/Movies/:MovieID</td>
+        <td>Delete</td>
+        <td>JSON</td>
+        <td>
+          { "FavoriteMovies": [
+            "5fc0723a36a2920b2485b876",
+              ],
+              "_id": "5fc0a63736a2920b2485b87f",
+              "username": "Francisco",
+              "password": "Captain",
+              "email": "Magic@gmail.com",
+              "Birthday": "1997-01-01T00:00:00.000Z"
+          }
+          <td>
+      </tr>
+      <tr>
+        <td>Deletes User by username</td>
+        <td>/users/:username</td>
+        <td>Delete</td>
+        <td>JSON</td>
+        <td>"User" was deleted<td>
       </tr>
     </table>
   </section>
