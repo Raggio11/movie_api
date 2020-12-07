@@ -123,7 +123,7 @@ app.get("/users/:username", passport.authenticate('jwt', { session: false }), (r
 });
 // Allows to add new user - Works perfectly
 app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
-  let hashedPassword = Users.hashPassword(req.body.Password);
+  let hashedPassword = Users.hashPassword(req.body.password);
   Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
