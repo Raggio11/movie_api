@@ -122,8 +122,22 @@ app.get("/users/:username", passport.authenticate('jwt', { session: false }), (r
     });
 });
 // Allows to add new user - Works perfectly
-app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/users',
+[
+   check('username', 'username is required').isLength({min: 5}),
+   check('username', 'username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+   check('password', 'password is required').not().isEmpty(),
+   check('email', 'email does not appear to be valid').isEmail()
+ ], (req, res) => {
+
+let errors = validationResult(req);
+
+if (!errors.isEmpty()) {
+  return res.status(422).json({ errors: errors.array() });
+}
+
   let hashedPassword = Users.hashPassword(req.body.password);
+
   Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
