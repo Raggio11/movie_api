@@ -22,7 +22,7 @@ require('./passport');
 
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:8080', 'https://peaceful-ocean-31920.herokuapp.com/', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:8080', 'https://peaceful-ocean-31920.herokuapp.com', 'http://localhost:1234', 'https://git.heroku.com/peaceful-ocean-31920.git'];
 
 const { check, validationResult } = require('express-validator');
 
