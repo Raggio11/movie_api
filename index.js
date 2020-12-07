@@ -137,7 +137,6 @@ if (!errors.isEmpty()) {
 }
 
   let hashedPassword = Users.hashPassword(req.body.password);
-
   Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
@@ -146,7 +145,7 @@ if (!errors.isEmpty()) {
         Users
           .create({
               username: req.body.username,
-              password: req.body.password,
+              password: hashedPassword,
               email: req.body.email,
               Birthday: req.body.Birthday
           })
