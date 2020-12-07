@@ -7,8 +7,9 @@ morgan = require(newLocal_1);
 const passport = require('passport');
 require('./passport');
 
-bodyParser = require('body-parser'),
+const { check, validationResult } = require('express-validator');
 
+bodyParser = require('body-parser'),
 
 mongoose = require("mongoose");
 Models = require("./models.js");
@@ -17,7 +18,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 mongoose.connect(
-  "mongodb+srv://Raggio:ELQyag1JwMItgCF4@myflixdb.clhzr.mongodb.net/myFlixDB?retryWrites=true&w=majority",
+  process.env.CONNECTION_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -28,11 +29,25 @@ const app = express();
 
 app.use(bodyParser.json());
 
-let auth = require('./auth')(app);
-
 app.use(morgan("common"));
 
 app.use(express.static("public"));
+
+const cors = require('cors');
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
+
+let auth = require('./auth')(app);
 
 //Welcome page-it is working
 app.get("/", passport.authenticate('jwt', { session: false }), (_req, res) => {
@@ -118,6 +133,7 @@ app.get("/users/:username", passport.authenticate('jwt', { session: false }), (r
 });
 // Allows to add new user - Works perfectly
 app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
@@ -144,6 +160,7 @@ app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) 
 });
 //Update user by username - it works!!
 app.put('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOneAndUpdate({ username: req.params.username }, {
     $set:
     {
