@@ -164,10 +164,10 @@ if (!errors.isEmpty()) {
 //Update user by username - it works!!
 app.put('/users/:username',
 [
-check('Username', 'Username is required').isLength({min: 5}),
-check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-check('Password', 'Password is required').not().isEmpty(),
-check('Email', 'Email does not appear to be valid').isEmail()
+check('username', 'username is required').isLength({min: 5}),
+check('username', 'username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+check('password', 'password is required').not().isEmpty(),
+check('email', 'email does not appear to be valid').isEmail()
 ], (req, res) => {
 
 let errors = validationResult(req);
