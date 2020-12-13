@@ -45,7 +45,7 @@ app.get("/", passport.authenticate('jwt', { session: false }), (_req, res) => {
 });
 
 //Get all movies - it is working
-app.get('/movies', passport.authenticate('jwt', { session: false }), (_req, res) => {
+app.get('/movies', { session: false }), (_req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -53,7 +53,6 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (_req, res)
     .catch((error) => {
       console.error(error);
       res.status(500).send('Error: ' + error);
-    });
 });
 
 //gets all users - it is working
