@@ -40,12 +40,12 @@ app.use(cors({
 let auth = require('./auth')(app);
 
 //Welcome page-it is working
-app.get("/", passport.authenticate('jwt', { session: false }), (_req, res) => {
+app.get("/", (_req, res) => {
   res.send("Welcome to myFlix!");
 });
 
 //Get all movies - it is working
-app.get('/movies',  passport.authenticate('jwt', { session: false }), (_req, res) => {
+app.get('/movies', (_req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
