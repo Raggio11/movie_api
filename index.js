@@ -22,7 +22,7 @@ require('./passport');
 
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:8080', 'https://peaceful-ocean-31920.herokuapp.com', 'http://localhost:1234', 'https://git.heroku.com/peaceful-ocean-31920.git'];
+let allowedOrigins = ['http://localhost:8080', 'https://peaceful-ocean-31920.herokuapp.com', 'http://localhost:1234', 'https://git.heroku.com/peaceful-ocean-31920.git', '*' ];
 
 const { check, validationResult } = require('express-validator');
 
@@ -45,7 +45,7 @@ app.get("/", (_req, res) => {
 });
 
 //Get all movies - it is working
-app.get('/movies', (_req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (_req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -57,7 +57,7 @@ app.get('/movies', (_req, res) => {
 });
 
 //gets all users - it is working
-app.get("/users", (_req, res) => {
+app.get("/users", passport.authenticate('jwt', { session: false }),(_req, res) => {
   Users.find()
     .then(users => {
       res.status(201).json(users);
