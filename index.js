@@ -147,7 +147,7 @@ if (!errors.isEmpty()) {
               username: req.body.username,
               password: hashedPassword,
               email: req.body.email,
-              Birthday: req.body.Birthday
+              Birthdate: req.body.Birthdate
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
@@ -183,7 +183,7 @@ if (!errors.isEmpty()) {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email,
-      Birthday: req.body.Birthday
+      Birthdate: req.body.Birthdate
     }
   },
   { new: true }, // This line makes sure that the updated document is returned
