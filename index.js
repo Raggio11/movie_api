@@ -22,7 +22,7 @@ require('./passport');
 
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:8080', 'https://mymovie-flix.netlify.app', 'http://localhost:1234', 'https://git.heroku.com/peaceful-ocean-31920.git', '*','https://60009a1abbc4ab000795bd0b--keen-saha-d09040.netlify.app','https://keen-saha-d09040.netlify.app'];
+let allowedOrigins = ['http://localhost:8080', 'https://mymovie-flix.netlify.app', 'http://localhost:1234', 'https://git.heroku.com/peaceful-ocean-31920.git', '*','https://60009a1abbc4ab000795bd0b--keen-saha-d09040.netlify.app','https://keen-saha-d09040.netlify.app','http://localhost:4200/','localhost:4200/'];
 
 
 
